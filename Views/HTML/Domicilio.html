@@ -1,0 +1,1136 @@
+
+  <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+</head>
+<body>
+    <!-- Barra de Navegación -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" style="height: 120px;" href="#">
+        <img src="../Img/logo 1.jpg" alt="Logo" width="100" height="120" class="me-2 rounded-pill">
+        <span class="fs-4">El lugar de los mil sabores</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Enlaces de navegación -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" style="font-size: 25px;" href="../Index.html">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"style="font-size: 25px;" href="../Html/Menu.html">Menú</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="font-size: 25px;" href="../Html/Carrito.html">Carrito</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="font-size: 25px;" href="../Html/Contacto.html">Contacto</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="font-size: 25px;" href="../Html/Historial.html">Historial</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="font-size: 25px;" href="../Html/Perfil.html">Perfil</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+    <div class="container mt-5 ">
+        <!-- Filtros de categoría -->
+        <div class="row mb-3">
+            <div class="col-12">
+                <h2 class="text-center"style="font-size:50px;color: rgb(255, 123, 0)";>Menú</h2>
+                <label for="categoryFilter" style="font-size: 30px;color: brown;">Filtrar por categoría:</label>
+                <select class="form-select" id="categoryFilter">
+                    <option value="all">Todas</option>
+                    <option value="entradas">Entradas</option>
+                    <option value="platos_fuertes">Platos Fuertes</option>
+                    <option value="postres">Postres</option>
+                    <option value="bebidas">Bebidas</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Filtros de preferencias -->
+        <div class="row mb-3">
+            <div class="col-12">
+                <label for="preferenceFilter"  style="font-size: 30px;color: brown;">Filtrar por preferencias:</label>
+                <select class="form-select" id="preferenceFilter">
+                    <option value="all">Todas</option>
+                    <option value="con_arroz">Con arroz</option>
+                    <option value="con_carne">Con carne</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Listado de platillos -->
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="menuItems">
+            <!-- Platillo 1 -->
+            <div class="col platillo entradas" data-preference="con_carne">
+                <div class="card h-100">
+                    <img src="../Img/empanadas.jpg" class="card-img-top" alt="Platillo 1">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title text-center fs-2">Trio de empanadas</h5>
+                        <p class="card-text fs-6">Masa crujiente rellena de carne, pollo o verduras, servidas con una salsa de ají o chimichurri.</p>
+                        <p class="text-center fs-2"><strong>Precio:</strong> $12.000</p>
+                        <div class="mt-auto text-center">
+                            <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#detailsModal1" onclick="showDetails('Trio de empanadas', 'Vegetales orgánicos, aderezo de limón', '100 cal, 5g proteína')">Ver detalles</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Platillo 2 -->
+            <div class="col platillo platos entradas" data-preference="">
+                <div class="card h-100">
+                    <img src="../Img/rollo.jpg" class="card-img-top" alt="Platillo 2">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title text-center fs-2">Rollos de queso y jamon</h5>
+                        <p class="card-text fs-5">Rollitos de jamón y queso, crujientes por fuera y fundidos por dentro. Perfectos para disfrutar en cualquier momento.</p>
+                        <p class="text-center fs-2"><strong>Precio:</strong> $15.000</p>
+                        <div class="mt-auto text-center">
+                            <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#detailsModal2" onclick="showDetails('Rollos de queso y jamon', 'Carne de res, especias, aceite de oliva', '500 cal, 35g proteína')">Ver detalles</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Platillo 3 -->
+            <div class="col platillo platos entradas" data-preference="">
+                <div class="card h-100">
+                    <img src="../Img/chorizos.jpg" class="card-img-top" alt="Platillo 3">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title text-center fs-2">Chorizos coctel</h5>
+                        <p class="card-text fs-5">Pequeños chorizos asados a la parrilla, servidos con pan y chimichurri para un sabor tradicional.</p>
+                        <p class="text-center fs-2"><strong>Precio:</strong> $10.000</p>
+                        <div class="mt-auto text-center">
+                            <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#detailsModal3" onclick="showDetails('Chorizos coctel', 'Manzana, harina sin gluten, azúcar', '200 cal, 2g proteína')">Ver detalles</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Platillo 4 -->
+        <div class="row mt-5" id="menuItems">
+            <div class="col-md-4 platillo platos_fuertes" data-preference="con_carne">
+                <div class="card h-100">
+                    <img src="../Img/Churrasco2.webp" class="card-img-top" alt="Platillo 4">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title text-center fs-2">Churrasco</h5>
+                        <p class="card-text fs-5">Corte de carne a la parrilla, jugoso y tierno, acompañado de papas, ensalada y chimichurri.</p>
+                        <p class="text-center fs-2"><strong>Precio:</strong> $35.000</p>
+                        <div class="mt-auto text-center">
+                            <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#detailsModal4" onclick="showDetails('Churrasco', 'Carne de res, especias, aceite de oliva', '500 cal, 35g proteína')">Ver detalles</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Platillo 5 -->
+            <div class="col-md-4 platillo platos_fuertes" data-preference="con_arroz">
+                <div class="card h-100">
+                    <img src="../Img/lomo2.jpg" class="card-img-top" alt="Platillo 5">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title text-center fs-2">Lomo de res</h5>
+                        <p class="card-text fs-5">Filete de lomo de res perfectamente sellado, servido con guarniciones tradicionales como puré de papas o verduras asadas.</p>
+                        <p class="text-center fs-2"><strong>Precio:</strong> $38.000</p>
+                        <div class="mt-auto text-center">
+                            <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#detailsModal5" onclick="showDetails('Lomo de res', 'Carne de res, especias, aceite de oliva', '500 cal, 35g proteína')">Ver detalles</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Platillo 6 -->
+            <div class="col-md-4 platillo platos_fuertes" data-preference="con_arroz">
+                <div class="card h-100">
+                    <img src="../Img/bandeja1.avif" class="card-img-top" alt="Platillo 6">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title text-center fs-2">Bandeja paisa</h5>
+                        <p class="card-text text-center fs-5">Un festín de sabores colombianos que incluye arroz, frijoles, carne molida, chicharrón, arepa, huevo frito, aguacate y plátano maduro.</p>
+                        <p class="text-center fs-2"><strong>Precio:</strong> $32.000</p>
+                        <div class="mt-auto text-center">
+                            <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#detailsModal6" onclick="showDetails('Bandeja paisa', 'Carne de res, especias, aceite de oliva', '500 cal, 35g proteína')">Ver detalles</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Platillo 7 -->
+        <div class="row mt-5" id="menuItems">
+            <!-- Platillo 7 -->
+            <div class="col-md-4 platillo postres" data-preference="">
+                <div class="card h-100">
+                    <img src="../Img/gelatina.avif" class="card-img-top" alt="Platillo 7">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title text-center fs-2">Gelatina</h5>
+                        <p class="card-text fs-5">Deliciosa y fresca, hecha con jugos naturales, ideal para un postre ligero y refrescante.</p>
+                        <p class="text-center fs-2"><strong>Precio:</strong> $7.000</p>
+                        <div class="mt-auto text-center">
+                            <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#detailsModal7" onclick="showDetails('Filete de Res a la Parrilla', 'Carne de res, especias, aceite de oliva', '500 cal, 35g proteína')">Ver detalles</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Platillo 8 -->
+            <div class="col-md-4 platillo postres" data-preference="">
+                <div class="card h-100">
+                    <img src="../Img/fresas.jpg" class="card-img-top" alt="Platillo 8">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title text-center fs-2">Fresas con crema</h5>
+                        <p class="card-text fs-5">Fresas frescas bañadas en una suave y dulce crema, un postre simple pero delicioso.</p>
+                        <p class="text-center fs-2"><strong>Precio:</strong> $8.500</p>
+                        <div class="mt-auto text-center">
+                            <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#detailsModal8" onclick="showDetails('Fresas con crema', 'Carne de res, especias, aceite de oliva', '500 cal, 35g proteína')">Ver detalles</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Platillo 9 -->
+            <div class="col-md-4 platillo postres" data-preference="">
+                <div class="card h-100">
+                    <img src="../Img/torta.jpg" class="card-img-top" alt="Platillo 9">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title text-center fs-2">Torta de chocolate</h5>
+                        <p class="card-text fs-5">Un esponjoso pastel de chocolate, cubierto con un glaseado cremoso, perfecto para los amantes del chocolate.</p>
+                        <p class="text-center fs-2"><strong>Precio:</strong> $6.500</p>
+                        <div class="mt-auto text-center">
+                            <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#detailsModal9" onclick="showDetails('Torta de chocolate', 'Carne de res, especias, aceite de oliva', '500 cal, 35g proteína')">Ver detalles</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- Platillo 10 -->
+        <div class="row mt-5" id="menuItems">
+            <!-- Platillo 10 -->
+            <div class="col-md-4 platillo bebidas" data-preference="">
+                <div class="card h-100">
+                    <img src="../Img/gaseosa.png" class="card-img-top" alt="Platillo 10">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title text-center fs-2">Coca cola</h5>
+                        <p class="card-text fs-5">La clásica bebida refrescante con su sabor único y burbujeante, ideal para acompañar cualquier plato y disfrutar en cualquier momento.</p>
+                        <p class="text-center fs-2"><strong>Precio:</strong> $6.000</p>
+                        <div class="mt-auto text-center">
+                            <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#detailsModal10" onclick="showDetails('Coca cola', 'Carne de res, especias, aceite de oliva', '500 cal, 35g proteína')">Ver detalles</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Platillo 11 -->
+            <div class="col-md-4 platillo bebidas" data-preference="">
+                <div class="card h-100">
+                    <img src="../Img/naranja4.jpg" class="card-img-top" alt="Platillo 11">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title text-center fs-2">Jugo de naranja</h5>
+                        <p class="card-text fs-5">Natural y fresco, exprimido al momento para ofrecer todo el sabor y la vitalidad de las naranjas. Perfecto para un toque de frescura y energía.</p>
+                        <p class="text-center fs-2"><strong>Precio:</strong> $3.000</p>
+                        <div class="mt-auto text-center">
+                            <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#detailsModal11" onclick="showDetails('Jugo de naranja', 'Carne de res, especias, aceite de oliva', '500 cal, 35g proteína')">Ver detalles</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Platillo 12 -->
+            <div class="col-md-4 platillo bebidas" data-preference="">
+                <div class="card h-100">
+                    <img src="../Img/corona.jpg" class="card-img-top" alt="Platillo 12">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title text-center fs-2">Coronita</h5>
+                        <p class="card-text fs-5">Cerveza refrescante y ligera, servida en su tradicional botella pequeña, ideal para disfrutar con amigos o acompañar un buen plato de comida.</p>
+                        <p class="text-center fs-2"><strong>Precio:</strong> $12.000</p>
+                        <div class="mt-auto text-center">
+                            <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#detailsModal12" onclick="showDetails('Coronita', 'Carne de res, especias, aceite de oliva', '500 cal, 35g proteína')">Ver detalles</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Modal de detalles -->
+        
+        <div class="modal fade" id="detailsModal1" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="detailsModalLabel">Detalles del Platillo</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h6 class="fs-2">Ingredientes:</h6>
+                        <ul class="fs-5">
+                          <li>Masa</li>
+                          <li>Carne molida</li>
+                          <li>Cebolla picada</li>
+                        </ul>
+                        <h6 class="fs-2">Valores Nutricionales:</h6>
+                        <ul class="fs-5">
+                            <li>Calorías: 150-250</li>
+                            <li>Proteínas: 7-10g</li>
+                            <li>Grasas: 8-15g</li>
+                            <li>Carbohidratos: 15-25g</li>
+                        </ul>
+                      </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="detailsModal2" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="detailsModalLabel">Detalles del Platillo</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h6 class="fs-2">Ingredientes:</h6>
+                        <ul class="fs-5">
+                          <li>Pan de molde </li>
+                          <li>Queso cremoso</li>
+                          <li>Jamón</li>
+                        </ul>
+                        <h6 class="fs-2">Valores Nutricionales:</h6>
+                        <ul class="fs-5">
+                          <li>Calorías: 120-180</li>
+                          <li>Proteínas:  8-12g</li>
+                          <li>Grasas: 6-9g</li>
+                          <li>Carbohidratos: 10-15g</li>
+                        </ul>
+                      </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="detailsModal3" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="detailsModalLabel">Detalles del Platillo</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h6 class="fs-2">Ingredientes:</h6>
+                        <ul class="fs-5">
+                          <li>Chorizos</li>
+                          <li>Cebolla morada</li>
+                          <li>Tomates cherry</li>
+                        </ul>
+                        <h6 class="fs-2">Valores Nutricionales:</h6>
+                        <ul class="fs-5">
+                          <li>Calorías: 150-250</li>
+                          <li>Proteínas: 10-14g</li>
+                          <li>Grasas: 12-20g</li>
+                          <li>Carbohidratos: 1-3g</li>
+                        </ul>
+                      </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="detailsModal4" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="detailsModalLabel">Detalles del Platillo</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h6 class="fs-2">Ingredientes:</h6>
+                        <ul class="fs-5">
+                          <li>Corte de carne</li>
+                          <li>Aceite o mantequilla</li>
+                          <li>Sal y pimienta al gusto</li>
+                        </ul>
+                        <h6 class="fs-2">Valores Nutricionales:</h6>
+                        <ul class="fs-5">
+                        <li>Calorías: 400-500</li>
+                            <li>Proteínas: 40-50g</li>
+                            <li>Grasas: 20-30g</li>
+                            <li>Carbohidratos: 0-5g</li>
+                        </ul>
+                      </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="detailsModal5" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="detailsModalLabel">Detalles del Platillo</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h6 class="fs-2">Ingredientes:</h6>
+                        <ul class="fs-5">
+                          <li>Lomo de res</li>
+                          <li>Aceite o mantequilla</li>
+                          <li>Ajo</li>
+                        </ul>
+                        <h6 class="fs-2">Valores Nutricionales:</h6>
+                        <ul class="fs-5">
+                            <li>Calorías: 350-450</li>
+                            <li>Proteínas: 40-50g</li>
+                            <li>Grasas: 15-25g</li>
+                            <li>Carbohidratos: 0-2g</li>
+                        </ul>
+                      </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="detailsModal6" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="detailsModalLabel">Detalles del Platillo</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h6 class="fs-2">Ingredientes:</h6>
+                        <ul class="fs-5">
+                            <li>Arroz blanco</li>
+                            <li>Frijoles </li>
+                            <li>Chicharrón</li>
+                            <li>Huevos fritos</li>
+                            <li>Plátano maduro</li>
+                            <li>Aguacate</li>
+                          </ul>
+                          <h6 class="fs-2">Valores Nutricionales:</h6>
+                          <ul class="fs-5">
+                              <li>Calorías: 900-1,200</li>
+                              <li>Proteínas: 40-50g</li>
+                              <li>Grasas: 50-70g</li>
+                              <li>Carbohidratos: 80-100g</li>
+                          </ul>
+                        </div>
+                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="detailsModal7" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="detailsModalLabel">Detalles del Platillo</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h6 class="fs-2">Ingredientes:</h6>
+                        <ul class="fs-5">
+                            <li>Gelatina en polvo</li>
+                            <li>Agua</li>
+                            <li>Azucar</li>
+                          </ul>
+                          <h6 class="fs-2">Valores Nutricionales:</h6>
+                          <ul class="fs-5">
+                              <li>Calorías: 80-120</li>
+                              <li>Proteínas: 2-3g</li>
+                              <li>Grasas: 0-2g</li>
+                              <li>Carbohidratos: 20-30g</li>
+                          </ul>
+                        </div>
+                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="detailsModal8" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="detailsModalLabel">Detalles del Platillo</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h6 class="fs-2">Ingredientes:</h6>
+                        <ul class="fs-5">
+                            <li>Fresas</li>
+                            <li>Crema batida </li>
+                            <li>Azucar</li>
+                          </ul>
+                          <h6 class="fs-2">Valores Nutricionales:</h6>
+                          <ul class="fs-5">
+                              <li>Calorías: 150-250</li>
+                              <li>Proteínas: 2-4g</li>
+                              <li>Grasas: 10-18g</li>
+                              <li>Carbohidratos: 15-25g</li>
+                          </ul>
+                        </div>
+                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="detailsModal9" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="detailsModalLabel">Detalles del Platillo</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h6 class="fs-2">Ingredientes:</h6>
+                        <ul class="fs-5">
+                            <li>Harina de trigo</li>
+                            <li>Azúcar</li>
+                            <li>Mantequilla</li>
+                            <li>Huevos</li>
+                            <li>Leche</li>
+                            <li>Polvo de hornear</li>
+                            <li>Esencia de vainilla</li>
+                          </ul>
+                          <h6 class="fs-2">Valores Nutricionales:</h6>
+                          <ul class="fs-5">
+                              <li>Calorías: 350-450</li>
+                              <li>Proteínas: 5-7g</li>
+                              <li>Grasas: 20-30g</li>
+                              <li>Carbohidratos: 40-50g</li>
+                          </ul>
+                        </div>
+                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="detailsModal10" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="detailsModalLabel">Detalles del Platillo</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                          <h6 class="fs-2">Valores Nutricionales:</h6>
+                          <ul class="fs-5">
+                              <li>Calorías: 140</li>
+                              <li>Proteínas: 0g</li>
+                              <li>Grasas: 0g</li>
+                              <li>Carbohidratos: 39g</li>
+                          </ul>
+                        </div>
+                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="detailsModal11" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="detailsModalLabel">Detalles del Platillo</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h6 class="fs-2">Ingredientes:</h6>
+                        <ul class="fs-5">
+                            <li>Naranjas</li>
+                            <li>Agua</li>
+                            <li>Azúcar</li>
+                          </ul>
+                          <h6 class="fs-2">Valores Nutricionales:</h6>
+                          <ul class="fs-5">
+                              <li>Calorías: 110-120</li>
+                              <li>Proteínas: 1-2g</li>
+                              <li>Grasas: 0g</li>
+                              <li>Carbohidratos: 25-30g</li>
+                          </ul>
+                        </div>
+                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="detailsModal12" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="detailsModalLabel">Detalles del Platillo</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                          <h6 class="fs-2">Valores Nutricionales:</h6>
+                          <ul class="fs-5">
+                              <li>Calorías: 350-450</li>
+                              <li>Proteínas: 5-7g</li>
+                              <li>Grasas: 20-30g</li>
+                              <li>Carbohidratos: 40-50g</li>
+                          </ul>
+                        </div>
+                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>                                          
+        <!-- Modal de personalización -->
+       
+        
+ <div class="modal fade" id="customizeModal1" tabindex="-1" aria-labelledby="customizeModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="customizeModalLabel">Personalizar Platillo</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h5 id="customizePlatilloName"></h5>
+                        <p><strong>Precio:</strong> $<span id="customizePlatilloPrice"></span></p>
+                        <form id="customizationForm">
+                            <div class="mb-3">
+                                <label for="portionSize" class="form-label">Tamaño de Porción</label>
+                                <select class="form-select" id="portionSize">
+                                    <option value="normal">Normal</option>
+                                    <option value="grande">Grande</option>
+                                    <option value="extra">Extra</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="extraIngredients" class="form-label">Ingredientes Extra</label>
+                                <select class="form-select" id="extraIngredients" multiple>
+                                    <option value="Ají">Aji</option>
+                                    <option value="Salsas">Salsas</option>
+                                    <option value="Limon">Limon</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary" onclick="addCustomizedItem()">Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="customizeModal2" tabindex="-1" aria-labelledby="customizeModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="customizeModalLabel">Personalizar Platillo</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h5 id="customizePlatilloName"></h5>
+                        <p><strong>Precio:</strong> $<span id="customizePlatilloPrice"></span></p>
+                        <form id="customizationForm">
+                            <div class="mb-3">
+                                <label for="portionSize" class="form-label">Tamaño de Porción</label>
+                                <select class="form-select" id="portionSize">
+                                    <option value="normal">Normal</option>
+                                    <option value="grande">Grande</option>
+                                    <option value="extra">Extra</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="extraIngredients" class="form-label">Ingredientes Extra</label>
+                                <select class="form-select" id="extraIngredients" multiple>
+                                    <option value="Ají">Aji</option>
+                                    <option value="Salsas">Salsas</option>
+                                    <option value="Limon">Limon</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary" onclick="addCustomizedItem()">Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="customizeModal3" tabindex="-1" aria-labelledby="customizeModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="customizeModalLabel">Personalizar Platillo</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h5 id="customizePlatilloName"></h5>
+                        <p><strong>Precio:</strong> $<span id="customizePlatilloPrice"></span></p>
+                        <form id="customizationForm">
+                            <div class="mb-3">
+                                <label for="portionSize" class="form-label">Tamaño de Porción</label>
+                                <select class="form-select" id="portionSize">
+                                    <option value="normal">Normal</option>
+                                    <option value="grande">Grande</option>
+                                    <option value="extra">Extra</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="extraIngredients" class="form-label">Ingredientes Extra</label>
+                                <select class="form-select" id="extraIngredients" multiple>
+                                    <option value="Ají">Aji</option>
+                                    <option value="Salsas">Salsas</option>
+                                    <option value="Limon">Limon</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary" onclick="addCustomizedItem()">Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="customizeModal4" tabindex="-1" aria-labelledby="customizeModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="customizeModalLabel">Personalizar Platillo</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h5 id="customizePlatilloName"></h5>
+                        <p><strong>Precio:</strong> $<span id="customizePlatilloPrice"></span></p>
+                        <form id="customizationForm">
+                            <div class="mb-3">
+                                <label for="portionSize" class="form-label">Tamaño de Porción</label>
+                                <select class="form-select" id="portionSize">
+                                    <option value="normal">Normal</option>
+                                    <option value="grande">Grande</option>
+                                    <option value="extra">Extra</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="extraIngredients" class="form-label">Ingredientes Extra</label>
+                                <select class="form-select" id="extraIngredients" multiple>
+                                    <option value="Ají">Aji</option>
+                                    <option value="Salsas">Salsas</option>
+                                    <option value="Limon">Limon</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary" onclick="addCustomizedItem()">Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="customizeModal5" tabindex="-1" aria-labelledby="customizeModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="customizeModalLabel">Personalizar Platillo</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h5 id="customizePlatilloName"></h5>
+                        <p><strong>Precio:</strong> $<span id="customizePlatilloPrice"></span></p>
+                        <form id="customizationForm">
+                            <div class="mb-3">
+                                <label for="portionSize" class="form-label">Tamaño de Porción</label>
+                                <select class="form-select" id="portionSize">
+                                    <option value="normal">Normal</option>
+                                    <option value="grande">Grande</option>
+                                    <option value="extra">Extra</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="extraIngredients" class="form-label">Ingredientes Extra</label>
+                                <select class="form-select" id="extraIngredients" multiple>
+                                    <option value="Ají">Aji</option>
+                                    <option value="Salsas">Salsas</option>
+                                    <option value="Limon">Limon</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary" onclick="addCustomizedItem()">Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="customizeModal6" tabindex="-1" aria-labelledby="customizeModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="customizeModalLabel">Personalizar Platillo</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h5 id="customizePlatilloName"></h5>
+                        <p><strong>Precio:</strong> $<span id="customizePlatilloPrice"></span></p>
+                        <form id="customizationForm">
+                            <div class="mb-3">
+                                <label for="portionSize" class="form-label">Tamaño de Porción</label>
+                                <select class="form-select" id="portionSize">
+                                    <option value="normal">Normal</option>
+                                    <option value="grande">Grande</option>
+                                    <option value="extra">Extra</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="extraIngredients" class="form-label">Ingredientes Extra</label>
+                                <select class="form-select" id="extraIngredients" multiple>
+                                    <option value="Ají">Aji</option>
+                                    <option value="Salsas">Salsas</option>
+                                    <option value="Limon">Limon</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary" onclick="addCustomizedItem()">Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="customizeModal7" tabindex="-1" aria-labelledby="customizeModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="customizeModalLabel">Personalizar Platillo</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h5 id="customizePlatilloName"></h5>
+                        <p><strong>Precio:</strong> $<span id="customizePlatilloPrice"></span></p>
+                        <form id="customizationForm">
+                            <div class="mb-3">
+                                <label for="portionSize" class="form-label">Tamaño de Porción</label>
+                                <select class="form-select" id="portionSize">
+                                    <option value="normal">Normal</option>
+                                    <option value="grande">Grande</option>
+                                    <option value="extra">Extra</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="extraIngredients" class="form-label">Ingredientes Extra</label>
+                                <select class="form-select" id="extraIngredients" multiple>
+                                    <option value="Ají">Aji</option>
+                                    <option value="Salsas">Salsas</option>
+                                    <option value="Limon">Limon</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary" onclick="addCustomizedItem()">Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="customizeModal8" tabindex="-1" aria-labelledby="customizeModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="customizeModalLabel">Personalizar Platillo</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h5 id="customizePlatilloName"></h5>
+                        <p><strong>Precio:</strong> $<span id="customizePlatilloPrice"></span></p>
+                        <form id="customizationForm">
+                            <div class="mb-3">
+                                <label for="portionSize" class="form-label">Tamaño de Porción</label>
+                                <select class="form-select" id="portionSize">
+                                    <option value="normal">Normal</option>
+                                    <option value="grande">Grande</option>
+                                    <option value="extra">Extra</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="extraIngredients" class="form-label">Ingredientes Extra</label>
+                                <select class="form-select" id="extraIngredients" multiple>
+                                    <option value="Ají">Aji</option>
+                                    <option value="Salsas">Salsas</option>
+                                    <option value="Limon">Limon</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary" onclick="addCustomizedItem()">Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="customizeModal9" tabindex="-1" aria-labelledby="customizeModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="customizeModalLabel">Personalizar Platillo</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h5 id="customizePlatilloName"></h5>
+                        <p><strong>Precio:</strong> $<span id="customizePlatilloPrice"></span></p>
+                        <form id="customizationForm">
+                            <div class="mb-3">
+                                <label for="portionSize" class="form-label">Tamaño de Porción</label>
+                                <select class="form-select" id="portionSize">
+                                    <option value="normal">Normal</option>
+                                    <option value="grande">Grande</option>
+                                    <option value="extra">Extra</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="extraIngredients" class="form-label">Ingredientes Extra</label>
+                                <select class="form-select" id="extraIngredients" multiple>
+                                    <option value="Ají">Aji</option>
+                                    <option value="Salsas">Salsas</option>
+                                    <option value="Limon">Limon</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary" onclick="addCustomizedItem()">Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="customizeModal10" tabindex="-1" aria-labelledby="customizeModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="customizeModalLabel">Personalizar Platillo</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h5 id="customizePlatilloName"></h5>
+                        <p><strong>Precio:</strong> $<span id="customizePlatilloPrice"></span></p>
+                        <form id="customizationForm">
+                            <div class="mb-3">
+                                <label for="portionSize" class="form-label">Tamaño de Porción</label>
+                                <select class="form-select" id="portionSize">
+                                    <option value="normal">Normal</option>
+                                    <option value="grande">Grande</option>
+                                    <option value="extra">Extra</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="extraIngredients" class="form-label">Ingredientes Extra</label>
+                                <select class="form-select" id="extraIngredients" multiple>
+                                    <option value="Ají">Aji</option>
+                                    <option value="Salsas">Salsas</option>
+                                    <option value="Limon">Limon</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary" onclick="addCustomizedItem()">Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="customizeModal11" tabindex="-1" aria-labelledby="customizeModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="customizeModalLabel">Personalizar Platillo</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h5 id="customizePlatilloName"></h5>
+                        <p><strong>Precio:</strong> $<span id="customizePlatilloPrice"></span></p>
+                        <form id="customizationForm">
+                            <div class="mb-3">
+                                <label for="portionSize" class="form-label">Tamaño de Porción</label>
+                                <select class="form-select" id="portionSize">
+                                    <option value="normal">Normal</option>
+                                    <option value="grande">Grande</option>
+                                    <option value="extra">Extra</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="extraIngredients" class="form-label">Ingredientes Extra</label>
+                                <select class="form-select" id="extraIngredients" multiple>
+                                    <option value="Ají">Aji</option>
+                                    <option value="Salsas">Salsas</option>
+                                    <option value="Limon">Limon</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary" onclick="addCustomizedItem()">Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="customizeModal12" tabindex="-1" aria-labelledby="customizeModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="customizeModalLabel">Personalizar Platillo</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h5 id="customizePlatilloName"></h5>
+                        <p><strong>Precio:</strong> $<span id="customizePlatilloPrice"></span></p>
+                        <form id="customizationForm">
+                            <div class="mb-3">
+                                <label for="portionSize" class="form-label">Tamaño de Porción</label>
+                                <select class="form-select" id="portionSize">
+                                    <option value="normal">Normal</option>
+                                    <option value="grande">Grande</option>
+                                    <option value="extra">Extra</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="extraIngredients" class="form-label">Ingredientes Extra</label>
+                                <select class="form-select" id="extraIngredients" multiple>
+                                    <option value="Ají">Aji</option>
+                                    <option value="Salsas">Salsas</option>
+                                    <option value="Limon">Limon</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary" onclick="addCustomizedItem()">Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- Script para la interacción -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Función para filtrar platillos por categoría
+        document.getElementById('categoryFilter').addEventListener('change', function() {
+            const category = this.value;
+            const items = document.querySelectorAll('.platillo');
+            items.forEach(item => {
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+
+        // Función para filtrar platillos por preferencias
+        document.getElementById('preferenceFilter').addEventListener('change', function() {
+            const preference = this.value;
+            const items = document.querySelectorAll('.platillo');
+            items.forEach(item => {
+                if (preference === 'all' || item.dataset.preference === preference) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+        // Mostrar detalles del platillo en el modal
+        function showDetails(name, ingredients, nutrition) {
+            document.getElementById('platilloNombre').innerText = name;
+            document.getElementById('platilloIngredientes').innerText = `Ingredientes: ${ingredients}`;
+            document.getElementById('platilloNutricionales').innerText = nutrition;
+        }
+
+        // Configurar el modal de personalización
+        function customizeItem(name, price) {
+            document.getElementById('customizePlatilloName').innerText = name;
+            document.getElementById('customizePlatilloPrice').innerText = price;
+        }
+
+        // Agregar al carrito con personalización
+        function addCustomizedItem() {
+            const platilloName = document.getElementById('customizePlatilloName').innerText;
+            const portionSize = document.getElementById('portionSize').value;
+            const extraIngredients = Array.from(document.getElementById('extraIngredients').selectedOptions)
+                                          .map(option => option.value)
+                                          .join(', ');
+
+            alert(`${platilloName} (Porción: ${portionSize}, Ingredientes extra: ${extraIngredients}) ha sido agregado al carrito.`);
+        }
+    </script>
+    </div>
+    </div>
+   <!--Pie de pagina-->
+ <footer class="bg-dark text-white text-center p-4 mt-5">
+    <div class="container">
+    <div class="row">
+    <!-- Primera columna -->
+    <div class="col-md-4">
+    <h5>Enlaces</h5>
+    <ul class="list-unstyled">
+    <li><a href="../Html/Index.html" class="text-white">Inicio</a></li>
+    <li><a href="#" class="text-white">Menu</a></li>
+    <li><a href="../Html/Nosotros.html" class="text-white">Nosotros</a></li>
+    <li><a href="../Html/Contacto.html" class="text-white">Contacto</a></li>
+    </ul>
+    </div>
+    <!-- Segundo columna -->
+    <div class="col-md-4">
+    <h5>Redes Sociales</h5>
+    <ul class="list-unstyled">
+    <li><img src="../Img/Face.webp" style="width: 40px;" alt=""><a href="#" class="text-white">Facebook</a></li>
+    <li><img src="../Img/logowhatsapppng.webp" style="width: 40px;" alt=""><a href="#" class="text-white">WhatsApp</a></li>
+    <li><img src="../Img/logoinstagram.png" style="width: 60px;" alt=""><a href="#" class="text-white">Instagram</a></li>
+    </ul>
+    </div>
+    <!-- Tercer columna -->
+    <div class="col-md-4">
+    <h5>Contacto</h5>
+    <p>Dirección: Calle 27 d sur # 27 c 51</p>
+    <p>Email: Losmilsabores@gmail.com</p>
+    <p>Telefono: 3202604788</p>
+    </div>
+    </div>
+    </div>
+    <div class="text-center mt-4">
+    <p>&copy; 2025 Mi Sitio Web. Todos los derechos reservados.</p>
+    </div>
+    </footer>
+</body>

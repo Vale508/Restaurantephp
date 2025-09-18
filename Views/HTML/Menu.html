@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Barra de Navegación -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" style="height: 120px;" href="#">
+        <img src="../Img/logo 1.jpg" alt="Logo" width="100" height="120" class="me-2 rounded-pill">
+        <span class="fs-4">El lugar de los mil sabores</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Enlaces de navegación -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" style="font-size: 25px;" href="../Index.html">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"style="font-size: 25px;" href="../Html/Menu.html">Menú</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="font-size: 25px;" href="../Html/Nosotros.html">Nosotros</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="font-size: 25px;" href="../Html/Contacto.html">Contacto</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="font-size: 25px;" href="../Html/Domicilio.html">Domicilios</a>
+          </li>
+          <li class="nav-item">
+            <a href=""class="btn text-light" style="font-size: 25px;" data-bs-toggle="modal" data-bs-target="#myModal">Reservas</a>
+            <div class="modal" id="myModal">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+              
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                      <h4 class="modal-title">Reservar</h4>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+              
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <form id="reservaform">
+                                <div class="mb-3">
+                                    <label for="fecha" class="form-label">Fecha de reserva</label>
+                                    <input type="date" class="form-control" id="personas" min="1" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="personas" class="form-label">Numero de personas</label>
+                                    <input type="number" class="form-control" id="fecha" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="Nombre" class="form-label">Nombre Completo</label>
+                                    <input type="text" class="form-control" id="nombre" required>
+                               </div>
+                               <div class="mb-3">
+                                <label for="telefono" class="form-label">Telefono</label>
+                                <input type="tel" class="form-control" id="telefono" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="coreo" class="form-label">Correo</label>
+                                    <input type="email" class="form-control" id="correo" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="preferencia" class="form-label">Preferencias Adicionales</label>
+                                    <textarea class="form-control" id="Preferencias" rows="3"></textarea>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                                    <button type="submit" id="confirmres" class="btn btn-success">Confirmar Reserva</button>
+                                </div>
+                            </form>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <script>
+    document.getElementById('confirmres').addEventListener('click', function() {
+      alert('¡Tu reserva ha sido agendada!');
+    })
+  </script>
+<div class="container mt-5">
+    <h1 class="text-center mb-5">Nuestro Menú</h1>
+
+    <!-- Lista de Categorías -->
+    <div class="accordion" id="menuAccordion">
+
+        <!-- Categoría: Entradas -->
+        <div class="accordion-item">
+            <h2 class="accordion-header"id="headingEntradas">
+                <button class="accordion-button bg-danger text-white p-3 fw-bold" style="font-size: 30px;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEntradas" aria-expanded="true" aria-controls="collapseEntradas">
+                    Entradas
+                </button>
+            </h2>
+            <div id="collapseEntradas" class="accordion-collapse collapse show" aria-labelledby="headingEntradas" data-bs-parent="#menuAccordion">
+                <div class="accordion-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="../Img/empanadas.jpg" class="card-img-top" alt="Entrada 1">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center fs-2">Trio de empanadas</h5>
+                                    <p class="card-text text-center fs-5">Masa crujiente rellena de carne, pollo o verduras, servidas con una salsa de ají o chimichurri.</p>
+                                    <p class="text-center fs-2"><strong>Precio: $12.000</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="../Img/rollo.jpg" class="card-img-top" alt="Entrada 2">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center fs-2">Rollos de queso y jamon apanados</h5>
+                                    <p class="card-text text-center fs-5">Rollitos de jamón y queso, crujientes por fuera y fundidos por dentro. Perfectos para disfrutar en cualquier momento.</p>
+                                    <p class="text-center fs-2"><strong>Precio: $15.000</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="../Img/chorizos.jpg" class="card-img-top" alt="Entrada 3">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center fs-2">Chorizos coctel</h5>
+                                    <p class="card-text text-center fs-5">Pequeños chorizos asados a la parrilla, servidos con pan y chimichurri para un sabor tradicional.</p>
+                                    <p class="text-center fs-2"><strong>Precio: $10.000</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Categoría: Platos Fuertes -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingPlatosFuertes">
+                <button class="accordion-button" style="font-size: 30px; background-color: #FFAE03; color: white; font-weight: bold;" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePlatosFuertes" aria-expanded="false" aria-controls="collapsePlatosFuertes">
+                    Platos Fuertes
+                </button>
+            </h2>
+            <div id="collapsePlatosFuertes" class="accordion-collapse collapse" aria-labelledby="headingPlatosFuertes" data-bs-parent="#menuAccordion">
+                <div class="accordion-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="../Img/Churrasco2.webp" style="height: 290px;" class="card-img-top" alt="Plato Fuerte 1">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center fs-2">Churrasco</h5>
+                                    <p class="card-text text-center fs-5">Corte de carne a la parrilla, jugoso y tierno, acompañado de papas, ensalada y chimichurri. </p>
+                                    <p class="text-center fs-2"><strong>Precio: $35.000</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="../Img/lomo2.jpg" class="card-img-top" alt="Plato Fuerte 2">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center fs-2">Lomo de res</h5>
+                                    <p class="card-text text-center fs-5">Filete de lomo de res perfectamente sellado, servido con guarniciones tradicionales como puré de papas o verduras asadas.</p>
+                                    <p class="text-center fs-2"><strong>Precio: $38.000</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="../Img/bandeja1.avif" style="height: 268px;" class="card-img-top" alt="Plato Fuerte 3">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center fs-2">Bandeja paisa</h5>
+                                    <p class="card-text text-center fs-5">Un festín de sabores colombianos que incluye arroz, frijoles, carne molida, chicharrón, arepa, huevo frito, aguacate y plátano maduro.</p>
+                                    <p class="text-center fs-2"><strong>Precio: $32.000</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Categoría: Postres -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingPostres">
+                <button class="accordion-button bg-danger text-white p-3 fw-bold" style="font-size: 30px;" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePostres" aria-expanded="false" aria-controls="collapsePostres">
+                    Postres
+                </button>
+            </h2>
+            <div id="collapsePostres" class="accordion-collapse collapse" aria-labelledby="headingPostres" data-bs-parent="#menuAccordion">
+                <div class="accordion-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="../Img/gelatina.avif" class="card-img-top" alt="Postre 1">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center fs-2">Gelatina</h5>
+                                    <p class="card-text text-center fs-5">Deliciosa y fresca, hecha con jugos naturales, ideal para un postre ligero y refrescante..</p>
+                                    <p class="text-center fs-2"><strong>Precio: $7.000</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="../Img/fresas.jpg" class="card-img-top" alt="Postre 2">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center fs-2">Fresas con crema</h5>
+                                    <p class="card-text text-center fs-5">Fresas frescas bañadas en una suave y dulce crema, un postre simple pero delicioso.</p>
+                                    <p class="text-center fs-2"><strong>Precio: $8.500</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="../Img/torta.jpg" class="card-img-top" alt="Postre 3">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center fs-2">Torta de chocolate</h5>
+                                    <p class="card-text text-center fs-5">Un esponjoso pastel de chocolate, cubierto con un glaseado cremoso, perfecto para los amantes del chocolate.</p>
+                                    <p class="text-center fs-2"><strong>Precio: $6.500</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Categoría: Bebidas -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingBebidas">
+                <button class="accordion-button " style="font-size: 30px; background-color: #FFAE03; color: white; font-weight: bold;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBebidas" aria-expanded="false" aria-controls="collapseBebidas">
+                    Bebidas
+                </button>
+            </h2>
+            <div id="collapseBebidas" class="accordion-collapse collapse" aria-labelledby="headingBebidas" data-bs-parent="#menuAccordion">
+                <div class="accordion-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="../Img/gaseosa.png" class="card-img-top" alt="Bebida 1">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center fs-2">Coca Cola</h5>
+                                    <p class="card-text text-center fs-5">La clásica bebida refrescante con su sabor único y burbujeante, ideal para acompañar cualquier plato y disfrutar en cualquier momento.</p>
+                                    <p class="text-center fs-2"><strong>Precio: $6.000</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="../Img/naranja4.jpg"  class="card-img-top" alt="Bebida 2">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center fs-2">Jugo de naranja</h5>
+                                    <p class="card-text text-center fs-5"> Natural y fresco, exprimido al momento para ofrecer todo el sabor y la vitalidad de las naranjas. Perfecto para un toque de frescura y energía.</p>
+                                    <p class="text-center fs-2"><strong>Precio: $3.000</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="../Img/corona.jpg" class="card-img-top" alt="Bebida 3">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center fs-2">Coronita</h5>
+                                    <p class="card-text text-center fs-5">Cerveza refrescante y ligera, servida en su tradicional botella pequeña, ideal para disfrutar con amigos o acompañar un buen plato de comida.</p>
+                                    <p class="text-center fs-2"><strong>Precio: $12.000</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+ <!--Pie de pagina-->
+ <footer class="bg-dark text-white text-center p-4 mt-5">
+    <div class="container">
+    <div class="row">
+    <!-- Primera columna -->
+    <div class="col-md-4">
+    <h5>Enlaces</h5>
+    <ul class="list-unstyled">
+    <li><a href="../Html/Index.html" class="text-white">Inicio</a></li>
+    <li><a href="#" class="text-white">Menu</a></li>
+    <li><a href="../Html/Nosotros.html" class="text-white">Nosotros</a></li>
+    <li><a href="../Html/Contacto.html" class="text-white">Contacto</a></li>
+    </ul>
+    </div>
+    <!-- Segundo columna -->
+    <div class="col-md-4">
+    <h5>Redes Sociales</h5>
+    <ul class="list-unstyled">
+    <li><img src="../Img/Face.webp" style="width: 40px;" alt=""><a href="#" class="text-white">Facebook</a></li>
+    <li><img src="../Img/logowhatsapppng.webp" style="width: 40px;" alt=""><a href="#" class="text-white">WhatsApp</a></li>
+    <li><img src="../Img/logoinstagram.png" style="width: 60px;" alt=""><a href="#" class="text-white">Instagram</a></li>
+    </ul>
+    </div>
+    <!-- Tercer columna -->
+    <div class="col-md-4">
+    <h5>Contacto</h5>
+    <p>Dirección: Calle 27 d sur # 27 c 51</p>
+    <p>Email: Losmilsabores@gmail.com</p>
+    <p>Telefono: 3202604788</p>
+    </div>
+    </div>
+    </div>
+    <div class="text-center mt-4">
+    <p>&copy; 2025 Mi Sitio Web. Todos los derechos reservados.</p>
+    </div>
+    </footer>
+<script src="../js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

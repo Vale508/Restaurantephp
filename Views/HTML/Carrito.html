@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+     <!-- Barra de Navegación -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" style="height: 120px;" href="#">
+        <img src="../Img/logo 1.jpg" alt="Logo" width="100" height="120" class="me-2 rounded-pill">
+        <span class="fs-4">El lugar de los mil sabores</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Enlaces de navegación -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" style="font-size: 25px;" href="../Index.html">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"style="font-size: 25px;" href="../Html/Menu.html">Menú</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="font-size: 25px;" href="../Html/Carrito.html">Carrito</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="font-size: 25px;" href="../Html/Contacto.html">Contacto</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="font-size: 25px;" href="../Html/Historial.html">Historial</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="font-size: 25px;" href="../Html/Perfil.html">Perfil</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container py-5">
+    <h2 class="text-center text-danger mb-4" style="font-size: 36px; font-weight: 600; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);">Carrito de Compras</h2>
+  
+    <!-- Carrito -->
+    <div id="carrito" class="mb-4 p-4 border rounded-lg shadow-lg" style="background-color: #fff3e6; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);">
+      <!-- Aquí se generarán los productos dinámicamente -->
+      <p class="text-center text-muted" style="font-size: 18px;">¡Tu carrito está vacío! Añade productos para ver el resumen.</p>
+    </div>
+  
+    <h4 class="text-warning" style="font-size: 28px; font-weight: 500;">Resumen</h4>
+    <div class="p-4 border rounded-lg mb-4" style="background-color: #ffebcc; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+      <p class="fs-3 mb-0 text-danger" style="font-weight: 700;">Total: <span id="totalPrecio" class="fw-bold">0</span>000 mil pesos</p>
+    </div>
+  
+    <!-- Métodos de pedido -->
+    <h4 class="text-orange" style="font-size: 26px; font-weight: 500;">Selecciona el método de pedido</h4>
+    <div class="d-flex align-items-center mb-3">
+      <input type="radio" name="metodoPedido" id="entregaDomicilio" checked class="form-check-input">
+      <label for="entregaDomicilio" class="ms-2 fs-5 text-danger fw-bold">Entrega a domicilio</label>
+    </div>
+    <div class="d-flex align-items-center">
+      <input type="radio" name="metodoPedido" id="recogerRestaurante" class="form-check-input">
+      <label for="recogerRestaurante" class="ms-2 fs-5 text-danger fw-bold">Recoger en restaurante</label>
+    </div>
+  
+    <!-- Direccion / Sucursal -->
+    <div id="direccionEntrega" class="mt-4">
+      <h5 class="text-warning" style="font-size: 22px; font-weight: 500;">Dirección de Entrega</h5>
+      <input type="text" id="direccion" class="form-control border-danger" placeholder="Introduce tu dirección de entrega" style="border-radius: 15px; font-size: 16px; padding: 12px;">
+    </div>
+  
+    <div id="seleccionSucursal" style="display: none; margin-top: 20px;">
+      <h5 class="text-warning" style="font-size: 22px; font-weight: 500;">Selecciona la sucursal y horario</h5>
+      <select id="sucursal" class="form-select mb-3" style="border-radius: 15px; font-size: 16px; padding: 12px;">
+        <option value="Corporacion club Santa Marta">Corporacion club Santa Marta</option>
+        <option value="El mejor ajiaco del mundo">El mejor ajiaco del mundo</option>
+        <option value="La puerta de la catedral">La puerta de la catedral</option>
+      </select>
+      <input type="time" id="horario" class="form-control" style="border-radius: 15px; font-size: 16px; padding: 12px;">
+    </div>
+  
+    <button class="btn btn-warning mt-4" id="procederPago" style="width: 100%; border-radius: 15px; font-size: 20px; font-weight: 600; padding: 12px; transition: background-color 0.3s, transform 0.3s;" onmouseover="this.style.backgroundColor='#e63946'; this.style.transform='scale(1.05)';" onmouseout="this.style.backgroundColor='#dc3545'; this.style.transform='scale(1)';">Proceder al Pago</button>
+  </div>
+  
+  <!-- Modal de confirmación para eliminar producto -->
+  <div class="modal fade" id="modalEliminar" tabindex="-1" aria-labelledby="modalEliminarLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content" style="border-radius: 15px; background-color: #fff8f1;">
+        <div class="modal-header" style="background-color: #ffb3b3;">
+          <h5 class="modal-title" id="modalEliminarLabel">Eliminar Producto</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <p class="text-danger" style="font-size: 18px; font-weight: 600;">¿Estás seguro de que deseas eliminar este producto del carrito?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="border-radius: 10px;">Cancelar</button>
+          <button type="button" class="btn btn-danger" id="confirmarEliminar" style="border-radius: 10px;">Eliminar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+<script src="../js/bootstrap.bundle.min.js"></script>
+
+<script>
+  // Productos de ejemplo
+  const productos = [
+    { id: 1, nombre: "Empanadas", precio: 12. },
+    { id: 2, nombre: "Bandeja paisa", precio: 32. },
+    { id: 3, nombre: "Fresas con crema", precio: 8. },
+    { id: 4, nombre: "Churrasco", precio: 35. },
+    { id: 5, nombre: "Lomo de res", precio: 38. },
+    { id: 6, nombre: "Torta de chocolate", precio: 6. },
+    { id: 7, nombre: "Gelatina", precio: 7. },
+    { id: 8, nombre: "Coca cola", precio: 6. },
+    { id: 9, nombre: "Jugo de naranja", precio: 3. },
+    { id: 10, nombre: "Coronita", precio: 12. }
+  ];
+
+  let carrito = [];
+
+  // Función para agregar al carrito
+  function agregarAlCarrito(producto) {
+    carrito.push(producto);
+    actualizarCarrito();
+  }
+
+  // Función para actualizar el carrito
+  function actualizarCarrito() {
+    const carritoDiv = document.getElementById('carrito');
+    carritoDiv.innerHTML = ''; // Limpiar contenido previo
+
+    let total = 0;
+    carrito.forEach((producto, index) => {
+      const productoDiv = document.createElement('div');
+      productoDiv.classList.add('d-flex', 'justify-content-between', 'mb-3');
+      productoDiv.innerHTML = `
+        <span>${producto.nombre} - ${producto.precio}000 mil pesos</span>
+        <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalEliminar" data-index="${index}">Eliminar</button>
+      `;
+      carritoDiv.appendChild(productoDiv);
+      total += producto.precio;
+    });
+
+    document.getElementById('totalPrecio').textContent = total;
+  }
+
+  // Eliminar un producto
+  document.getElementById('modalEliminar').addEventListener('show.bs.modal', function(event) {
+    const button = event.relatedTarget;
+    const index = button.getAttribute('data-index');
+    const confirmarEliminar = document.getElementById('confirmarEliminar');
+    
+    confirmarEliminar.onclick = () => {
+      carrito.splice(index, 1); // Eliminar producto del carrito
+      actualizarCarrito();
+      const modal = new bootstrap.Modal(document.getElementById('modalEliminar'));
+      modal.hide();
+    };
+  });
+
+  // Manejar la selección del método de pedido
+  document.getElementById('entregaDomicilio').addEventListener('change', function() {
+    document.getElementById('direccionEntrega').style.display = 'block';
+    document.getElementById('seleccionSucursal').style.display = 'none';
+  });
+
+  document.getElementById('recogerRestaurante').addEventListener('change', function() {
+    document.getElementById('direccionEntrega').style.display = 'none';
+    document.getElementById('seleccionSucursal').style.display = 'block';
+  });
+
+  // Proceder al pago
+  document.getElementById('procederPago').addEventListener('click', function() {
+    const metodoPedido = document.querySelector('input[name="metodoPedido"]:checked').value;
+    let detallePedido = `Método de pedido: ${metodoPedido}\n`;
+
+    if (metodoPedido === 'entregaDomicilio') {
+      const direccion = document.getElementById('direccion').value;
+      detallePedido += `Dirección de entrega: ${direccion}`;
+    } else {
+      const sucursal = document.getElementById('sucursal').value;
+      const horario = document.getElementById('horario').value;
+      detallePedido += `Sucursal: ${sucursal}, Horario: ${horario}`;
+    }
+
+    alert(`Pedido confirmado:\n${detallePedido}\nTotal: ${document.getElementById('totalPrecio').textContent} mil pesos`);
+  });
+
+  // Agregar productos al carrito para mostrar ejemplo
+  productos.forEach(producto => agregarAlCarrito(producto));
+
+</script>
+<!--Pie de pagina-->
+<footer class="bg-dark text-white text-center p-4 mt-5">
+    <div class="container">
+    <div class="row">
+    <!-- Primera columna -->
+    <div class="col-md-4">
+    <h5>Enlaces</h5>
+    <ul class="list-unstyled">
+    <li><a href="../Html/Index.html" class="text-white">Inicio</a></li>
+    <li><a href="#" class="text-white">Menu</a></li>
+    <li><a href="../Html/Nosotros.html" class="text-white">Nosotros</a></li>
+    <li><a href="../Html/Contacto.html" class="text-white">Contacto</a></li>
+    </ul>
+    </div>
+    <!-- Segundo columna -->
+    <div class="col-md-4">
+    <h5>Redes Sociales</h5>
+    <ul class="list-unstyled">
+    <li><img src="../Img/Face.webp" style="width: 40px;" alt=""><a href="#" class="text-white">Facebook</a></li>
+    <li><img src="../Img/logowhatsapppng.webp" style="width: 40px;" alt=""><a href="#" class="text-white">WhatsApp</a></li>
+    <li><img src="../Img/logoinstagram.png" style="width: 60px;" alt=""><a href="#" class="text-white">Instagram</a></li>
+    </ul>
+    </div>
+    <!-- Tercer columna -->
+    <div class="col-md-4">
+    <h5>Contacto</h5>
+    <p>Dirección: Calle 27 d sur # 27 c 51</p>
+    <p>Email: Losmilsabores@gmail.com</p>
+    <p>Telefono: 3202604788</p>
+    </div>
+    </div>
+    </div>
+    <div class="text-center mt-4">
+    <p>&copy; 2025 Mi Sitio Web. Todos los derechos reservados.</p>
+    </div>
+    </footer>
+
+</body>
+</html>

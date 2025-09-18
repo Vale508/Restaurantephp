@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../Css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+    <!-- Barra de Navegación -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" style="height: 120px;" href="#">
+        <img src="../Img/logo 1.jpg" alt="Logo" width="100" height="120" class="me-2 rounded-pill">
+        <span class="fs-4">El lugar de los mil sabores</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Enlaces de navegación -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" style="font-size: 25px;" href="../Index.html">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"style="font-size: 25px;" href="../Html/Menu.html">Menú</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="font-size: 25px;" href="../Html/Nosotros.html">Nosotros</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="font-size: 25px;" href="../Html/Contacto.html">Contacto</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="font-size: 25px;" href="../Html/Domicilio.html">Domicilios</a>
+          </li>
+          <li class="nav-item">
+            <a href=""class="btn text-light" style="font-size: 25px;" data-bs-toggle="modal" data-bs-target="#myModal">Reservas</a>
+            <div class="modal" id="myModal">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+              
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                      <h4 class="modal-title">Reservar</h4>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+              
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <form id="reservaform">
+                                <div class="mb-3">
+                                    <label for="fecha" class="form-label">Fecha de reserva</label>
+                                    <input type="date" class="form-control" id="personas" min="1" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="personas" class="form-label">Numero de personas</label>
+                                    <input type="number" class="form-control" id="fecha" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="Nombre" class="form-label">Nombre Completo</label>
+                                    <input type="text" class="form-control" id="nombre" required>
+                               </div>
+                               <div class="mb-3">
+                                <label for="telefono" class="form-label">Telefono</label>
+                                <input type="tel" class="form-control" id="telefono" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="coreo" class="form-label">Correo</label>
+                                    <input type="email" class="form-control" id="correo" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="preferencia" class="form-label">Preferencias Adicionales</label>
+                                    <textarea class="form-control" id="Preferencias" rows="3"></textarea>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                                    <button type="submit" id="confirmres" class="btn btn-success">Confirmar Reserva</button>
+                                </div>
+                            </form>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+        </ul>
+      </div>
+    </div>
+  </nav>
+ <!--Formulario de Contacto -->
+<div class="container mt-3" style="margin-top: 500px;">
+<h2 class="text-center" style="font-size:50px ;color: rgb(255, 123, 0);">¡Contactanos!</h2>
+<form action="">
+<div class="mb-3 mt-3">
+<label for="name">Nombre:</label>
+<input type="name" class="form-control" id="email" placeholder="Felipe Cortez" name="name">
+</div>
+<div class="mb-3 mt-3">
+<label for="email"> Correo:</label>
+<input type="email" class="form-control" id="email" placeholder="ejemplo564@gmail.com" name="email">
+</div>
+<div class="mb-3 mt-3">
+<label for="comment">Mensaje:</label>
+<textarea class="form-control" rows="5" id="comment" name="text"></textarea>
+</div>
+<button type="submit" id="enviar" class="btn btn-primary">Enviar</button>
+</form>
+</div>
+<div class="container mt-4">
+    <div class="row">
+<h1 class="text-center" style="color: rgb(255, 123, 0)";>Nuestras Sedes</h1>
+<h5 class="text-center mt-5" style="font-size: 30px;">Corporación Club Santa Marta</h5>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3913.286336421265!2d-74.21881082425007!3d11.240334188938036!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ef4f57dbc917ae5%3A0x8ebac947d3d541!2sCra.%201c%20%2322-93%2C%20Comuna%202%2C%20Santa%20Marta%2C%20Magdalena!5e0!3m2!1ses!2sco!4v1741269620659!5m2!1ses!2sco" width="400" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+<div class="container mt-4">
+    <div class="row">
+<h5 class="text-center" style="font-size: 30px;">El Mejor Ajiaco Del Mundo</h5>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63631.86957380862!2d-74.1387015509823!3d4.595482268062764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f99a7c8d2f9bf%3A0x783ff13f091be933!2sEl%20mejor%20ajiaco%20del%20mundo!5e0!3m2!1ses!2sco!4v1741269386341!5m2!1ses!2sco" width="400" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+<div class="container mt-4">
+    <div class="row">
+<h5 class="text-center" style="font-size: 30px;">La Puerta De La Catedral</h5>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63631.86957380862!2d-74.1387015509823!3d4.595482268062764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f99a7c8e26b5f%3A0xffc9ae6fb2cfdf20!2sLa%20PUERTA%20de%20la%20CATEDRAL!5e0!3m2!1ses!2sco!4v1741269492348!5m2!1ses!2sco" width="400" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+  document.getElementById('enviar').addEventListener('click', function() {
+    alert('¡Tu formulario ha sido enviado, gracias por contactarnos!');
+  })
+
+    document.getElementById('confirmres').addEventListener('click', function() {
+      alert('¡Tu reserva ha sido agendada!');
+    })
+  
+</script>
+
+   <!--Pie de pagina-->
+ <footer class="bg-dark text-white text-center p-4 mt-5">
+    <div class="container">
+    <div class="row">
+    <!-- Primera columna -->
+    <div class="col-md-4">
+    <h5>Enlaces</h5>
+    <ul class="list-unstyled">
+    <li><a href="../Html/Index.html" class="text-white">Inicio</a></li>
+    <li><a href="#" class="text-white">Menu</a></li>
+    <li><a href="../Html/Nosotros.html" class="text-white">Nosotros</a></li>
+    <li><a href="../Html/Contacto.html" class="text-white">Contacto</a></li>
+    </ul>
+    </div>
+    <!-- Segundo columna -->
+    <div class="col-md-4">
+    <h5>Redes Sociales</h5>
+    <ul class="list-unstyled">
+    <li><img src="../Img/Face.webp" style="width: 40px;" alt=""><a href="#" class="text-white">Facebook</a></li>
+    <li><img src="../Img/logowhatsapppng.webp" style="width: 40px;" alt=""><a href="#" class="text-white">WhatsApp</a></li>
+    <li><img src="../Img/logoinstagram.png" style="width: 60px;" alt=""><a href="#" class="text-white">Instagram</a></li>
+    </ul>
+    </div>
+    <!-- Tercer columna -->
+    <div class="col-md-4">
+    <h5>Contacto</h5>
+    <p>Dirección: Calle 27 d sur # 27 c 51</p>
+    <p>Email: Losmilsabores@gmail.com</p>
+    <p>Telefono: 3202604788</p>
+    </div>
+    </div>
+    </div>
+    <div class="text-center mt-4">
+    <p>&copy; 2025 Mi Sitio Web. Todos los derechos reservados.</p>
+    </div>
+    </footer>
+</body>
+</html>
