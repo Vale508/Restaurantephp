@@ -5,7 +5,7 @@ require_once "conexion.php";
 try {
     // Instanciar la clase para la conexión
     $db = Database::connect();
-    $email = "valerin12@gmail.com";
+    $email = "      om";
 
     // Consultar si ese usuario se encuentra registrado
     $consul = $db->prepare("SELECT * FROM usuario WHERE correo = :correo");
@@ -13,10 +13,10 @@ try {
 
     // Registrar los datos de usuario y contraseña
     if (!$consul->fetch()) {
-        $pass = password_hash("admin12", PASSWORD_BCRYPT);
+        $pass = password_hash("admin123", PASSWORD_BCRYPT);
         
         // Crear el SQL de INSERT
-        $sql = "INSERT INTO usuario (Tipo_Usuario, Nombre, Documento, Telefono, Correo, Contraseña, Direccion) 
+        $sql = "INSERT INTO usuario (Tipo_Usuario, Nombre, Documento, Telefono, Correo, Contrasena, Direccion) 
                 VALUES ('Administrador', 'Carlos', '1234', '12345', :email, :clave, 'calle 23')";
         
         // Preparar y ejecutar el INSERT

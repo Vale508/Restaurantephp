@@ -37,7 +37,7 @@
         <a class="nav-link" style="font-size: 25px;" href="../Html/Historial.html">Historial</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" style="font-size: 25px;" href="../Html/Perfil.html">Perfil</a>
+        <a class="nav-link" style="font-size: 25px;" href="./Login.php">Perfil</a>
       </li>
     </ul>
   </div>
@@ -53,9 +53,9 @@
         </div>
 
         <!-- Columna del formulario -->
-        <div class="col-md-6">
+        <div class="col-md-6" action="infor.php">
             <h2 class="text-center text-warning mb-4">Iniciar Sesión</h2>
-            <form class="p-4 shadow-lg rounded-3 bg-light">
+            <form action="../../Controlador/usuariocontrolador.php" method="POST" class="p-4 shadow-lg rounded-3 bg-light">
                 <div class="mb-3">
                     <label for="email" class="form-label">Correo Electrónico</label>
                     <input type="email" name="email" class="form-control form-control-lg" id="email" placeholder="Ingrese su correo electrónico" required>
@@ -65,84 +65,45 @@
                     <input type="password" name="password" class="form-control form-control-lg" id="password" placeholder="Ingrese su contraseña" required>
                 </div>
                 <button type="submit" class="btn w-100 py-2 mt-3 rounded-pill shadow" style="background-color: #FFA500; color: white;font-size: 20px;">Iniciar sesión</button>
-                <p class="text-center" style="font-size: 20px;">
-                    ¿No tienes cuenta?
-                    <a href="../HTML/Registro.html">Registrarse
-                    </a>
-                </p>
             </form>
         </div>
     </div>
 </div>
 
-<!-- Sección del Perfil de Usuario -->
-<div id="perfil" class="container mt-5" style="display:none;">
-    <h2 class="text-center text-warning mb-4 ">Perfil de Usuario</h2>
-    <div class="row">
-        <div class="col-md-4 text-center">
-            <img src="../Img/mujer1.jpg" alt="Imagen de perfil" class="img-fluid rounded-circle mb-3 shadow-lg" style="max-width: 200px;">
-            <h3 class="text-dark">Carolina Gutierrez</h3>
-            <p class="text-muted">Empresaria</p>
-        </div>
-        <div class="col-md-8">
-            <h4 class="mb-3">Información del Perfil</h4>
-            <table class="table table-striped table-bordered">
-                <tbody>
-                    <tr>
-                        <th>Nombre Completo</th>
-                        <td>Carolina Gutierrez</td>
-                    </tr>
-                    <tr>
-                        <th>Correo Electrónico</th>
-                        <td>caroGut12@gmail.com</td>
-                    </tr>
-                    <tr>
-                        <th>Teléfono</th>
-                        <td>3215645901</td>
-                    </tr>
-                    <tr>
-                        <th>Dirección</th>
-                        <td>Calle 123, Ciudad, Bogotá</td>
-                    </tr>
-                </tbody>
-            </table>
-            <button class="btn btn-danger w-100 py-2 rounded-pill shadow" onclick="cerrarSesion()">Cerrar Sesión</button>
-        </div>
-    </div>
-</div>
-<!-- Scripts de Bootstrap -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<?php if ($usuario['Tipo_Usuario'] === 'Administrador'): ?>
+                           <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Tipo Usuario</th>
+                                    <th>Nombre</th>
+                                    <th>Documento</th>
+                                    <th>Teléfono</th>
+                                    <th>Correo</th>
+                                    <th>Dirección</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                    <tr>
+                                        <td><?= htmlspecialchars($usuario['Id_Usuario']) ?></td>
+                                        <td><?= htmlspecialchars($usuario['Tipo_Usuario']) ?></td>
+                                        <td><?= htmlspecialchars($usuario['Nombre']) ?></td>
+                                        <td><?= htmlspecialchars($usuario['Documento']) ?></td>
+                                        <td><?= htmlspecialchars($usuario['Telefono']) ?></td>
+                                        <td><?= htmlspecialchars($usuario['Correo']) ?></td>
+                                        <td><?= htmlspecialchars($usuario['Direccion']) ?></td>
+                                    </tr>
 
-<script>
-    // Simulación de inicio de sesión y mostrar perfil
-    document.querySelector('form').addEventListener('submit', function(event) {
-        event.preventDefault(); // Evitar que se recargue la página
-
-        // Obtener los datos del formulario
-        var email = document.getElementById('email').value;
-        var password = document.getElementById('password').value;
-
-        // Aquí se validaría si los datos son correctos. Como ejemplo, se considera cualquier usuario válido.
-        if (email && password) {
-            // Ocultar el formulario de inicio de sesión
-            document.querySelector('#login').style.display = 'none';
-
-            // Mostrar el perfil de usuario
-            document.querySelector('#perfil').style.display = 'block';
-        } else {
-            alert('Por favor, ingresa tus datos correctamente.');
-        }
-    });
-
-
-    // Función para cerrar sesión
-    function cerrarSesion() {
-        // Ocultar el perfil y mostrar de nuevo el formulario de inicio de sesión
-        document.querySelector('#perfil').style.display = 'none';
-        document.querySelector('#login').style.display = 'block';
-    }
-</script>
-
+                            </tbody>
+                        </table>
+                <?php endif; ?>
+                 <td colspan="2">
+                                    <h3>Opciones de Administrador</h3>
+                                    <ul>
+                                        <li><a href="../HTML/RegistroUsuarios.php">Registrar Usuarios</a></li>
+                                    </ul>
+                                </td>
+-->
 <!--Pie de pagina-->
 <footer class="bg-dark text-white text-center p-4 mt-5">
     <div class="container">

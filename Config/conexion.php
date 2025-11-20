@@ -2,8 +2,8 @@
 
 class Database {
     private static $host = "localhost";
-    private static $dbname = "restauranteval";
-    private static $username = "administrador";
+    private static $dbname = "restaurantenuevo";
+    private static $username = "adminis";
     private static $password = "12345";
     private static $charset = "utf8mb4";
     private static $pdo = null;
